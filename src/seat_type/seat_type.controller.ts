@@ -20,7 +20,7 @@ export class SeatTypeController {
     return this.seatTypeService.createSeatType(createSeatTypeDto);
   }
 
-  @Get("")
+  @Get("all")
   async getSeatTypes() {
     return this.seatTypeService.getAllSeatTypes();
   }

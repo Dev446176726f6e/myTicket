@@ -1,4 +1,6 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, Model, Table } from "sequelize-typescript";
+import { Venue } from "src/venue/model/venue.model";
+import { VenueVenueType } from "src/venue_venue_type/models/venue_venue_type.model";
 
 interface VenueTypeAttr {
   name: string;
@@ -18,4 +20,7 @@ export class VenueType extends Model<VenueType, VenueTypeAttr> {
     allowNull: false,
   })
   name: string;
+
+  @BelongsToMany(() => Venue, () => VenueVenueType)
+  venues: Venue[]
 }
