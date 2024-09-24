@@ -34,6 +34,8 @@ import { TicketModule } from "./ticket/ticket.module";
 import { TicketStatusModule } from "./ticket_status/ticket_status.module";
 import { TicketStatus } from "./ticket_status/model/ticket_status.model";
 import { Ticket } from "./ticket/model/ticket.model";
+import { CartStatusModule } from './cart_status/cart_status.module';
+import { BookingStatusModule } from './booking_status/booking_status.module';
 
 @Module({
   imports: [
@@ -83,6 +85,8 @@ import { Ticket } from "./ticket/model/ticket.model";
     LanguageModule,
     TicketModule,
     TicketStatusModule,
+    CartStatusModule,
+    BookingStatusModule,
     // UsersModule,
   ],
   controllers: [],

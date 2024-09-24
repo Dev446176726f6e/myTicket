@@ -39,4 +39,9 @@ export class EventController {
   remove(@Param("id") id: string) {
     return this.eventService.remove(+id);
   }
+
+  @Get("sold-seats/:eventId")
+  soldSeats(@Param("eventId") eventId: number) {
+    return this.eventService.getSoldSeats(eventId);
+  }
 }

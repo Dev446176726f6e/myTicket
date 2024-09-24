@@ -42,7 +42,7 @@ export class Ticket extends Model<Ticket, ITicketCreationAttr> {
   price: number;
 
   @Column({
-    type: DataType.DECIMAL(3),
+    type: DataType.DECIMAL,
   })
   service_fee: number;
 

@@ -3,6 +3,13 @@ import { CreateEventDto } from "./dto/create-event.dto";
 import { UpdateEventDto } from "./dto/update-event.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { Event } from "./model/event.model";
+import { Seat } from "src/seat/model/seat.model";
+import { Ticket } from "src/ticket/model/ticket.model";
+import { Venue } from "src/venue/model/venue.model";
+import { EventType } from "src/event_type/model/event_type.model";
+import { Language } from "src/language/model/language.model";
+import { TicketStatus } from "src/ticket_status/model/ticket_status.model";
+import { SeatType } from "src/seat_type/model/seat_type.model";
 
 @Injectable()
 export class EventService {
@@ -31,5 +38,39 @@ export class EventService {
 
   remove(id: number) {
     return this.eventModel.destroy({ where: { id } });
+  }
+
+  async getSoldSeats(eventId: number) {
+    const soldSeats = await this.eventModel.findByPk(eventId, {
+      include: [
+        {
+          model: Venue,
+          attributes: ["name", "address", "site", "phone"],
+          include: [
+            {
+              model: Seat,
+              attributes: ["sector", "row_number", "number"],
+              include: [
+                {
+                  model: Ticket,
+                  attributes: ["price"],
+                  include: [
+                    {
+                      model: TicketStatus,
+                      attributes: ["name"],
+                      where: { name: "Sold" },
+                    },
+                  ],
+                },
+                { model: SeatType, attributes: ["name"] },
+              ],
+            },
+          ],
+        },
+        { model: EventType, attributes: ["name", "category"] },
+        { model: Language, attributes: ["name"] },
+      ],
+    });
+    return soldSeats;
   }
 }

@@ -3,6 +3,7 @@ import { CreateTicketDto } from "./dto/create-ticket.dto";
 import { UpdateTicketDto } from "./dto/update-ticket.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { Ticket } from "./model/ticket.model";
+import { TicketStatus } from "src/ticket_status/model/ticket_status.model";
 
 @Injectable()
 export class TicketService {
@@ -14,11 +15,15 @@ export class TicketService {
   }
 
   findAll() {
-    return this.ticketModel.findAll();
+    return this.ticketModel.findAll({
+      include: [{ model: TicketStatus, attributes: ["name"] }],
+    });
   }
 
   findOne(id: number) {
-    return this.ticketModel.findByPk(id);
+    return this.ticketModel.findByPk(id, {
+      include: [{ model: TicketStatus, attributes: ["name"] }],
+    });
   }
 
   async update(id: number, updateTicketDto: UpdateTicketDto) {
