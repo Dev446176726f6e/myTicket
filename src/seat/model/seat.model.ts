@@ -3,10 +3,12 @@ import {
   Column,
   DataType,
   ForeignKey,
+  HasOne,
   Model,
   Table,
 } from "sequelize-typescript";
 import { SeatType } from "src/seat_type/model/seat_type.model";
+import { Ticket } from "src/ticket/model/ticket.model";
 import { Venue } from "src/venue/model/venue.model";
 
 interface ISeatCreationAttr {
@@ -68,4 +70,7 @@ export class Seat extends Model<Seat, ISeatCreationAttr> {
 
   @BelongsTo(() => SeatType)
   seat_type: SeatType;
+
+  @HasOne(() => Ticket)
+  ticket: Ticket;
 }

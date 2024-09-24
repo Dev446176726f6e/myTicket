@@ -12,6 +12,7 @@ import { AgeGroup } from "src/age_group/models/age_group.model";
 import { EventType } from "src/event_type/model/event_type.model";
 
 import { Language } from "src/language/model/language.model";
+import { Ticket } from "src/ticket/model/ticket.model";
 import { Venue } from "src/venue/model/venue.model";
 
 interface IEventCreationAttr {
@@ -102,4 +103,7 @@ export class Event extends Model<Event, IEventCreationAttr> {
 
   @BelongsTo(() => Language)
   lang: Language;
+
+  @HasMany(() => Ticket)
+  tickets: Ticket[];
 }

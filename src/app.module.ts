@@ -30,6 +30,10 @@ import { Language } from "./language/model/language.model";
 import { Event } from "./event/model/event.model";
 import { AgeGroupModule } from "./age_group/age_group.module";
 import { AgeGroup } from "./age_group/models/age_group.model";
+import { TicketModule } from "./ticket/ticket.module";
+import { TicketStatusModule } from "./ticket_status/ticket_status.module";
+import { TicketStatus } from "./ticket_status/model/ticket_status.model";
+import { Ticket } from "./ticket/model/ticket.model";
 
 @Module({
   imports: [
@@ -57,6 +61,8 @@ import { AgeGroup } from "./age_group/models/age_group.model";
         EventType,
         Language,
         Event,
+        TicketStatus,
+        Ticket,
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -75,6 +81,8 @@ import { AgeGroup } from "./age_group/models/age_group.model";
     EventModule,
     EventTypeModule,
     LanguageModule,
+    TicketModule,
+    TicketStatusModule,
     // UsersModule,
   ],
   controllers: [],
