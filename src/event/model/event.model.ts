@@ -1,12 +1,17 @@
 import {
+  BelongsTo,
   Column,
   DataType,
   ForeignKey,
+  HasMany,
+  HasOne,
   Model,
   Table,
 } from "sequelize-typescript";
-import { EventType } from "src/event_type/entities/event_type.entity";
-import { HumanCategory } from "src/human_category/models/human_category.model";
+import { AgeGroup } from "src/age_group/models/age_group.model";
+import { EventType } from "src/event_type/model/event_type.model";
+
+import { Language } from "src/language/model/language.model";
 import { Venue } from "src/venue/model/venue.model";
 
 interface IEventCreationAttr {
@@ -18,7 +23,7 @@ interface IEventCreationAttr {
   finish_time: string;
   info: string;
   event_type_Id: number;
-  human_category_Id: number;
+  age_group_Id: number;
   venueId: number;
   langId: number;
   release_date: string;
@@ -69,20 +74,32 @@ export class Event extends Model<Event, IEventCreationAttr> {
   })
   info: string;
 
-  //   @ForeignKey(() => EventType)
-  //   event_type_Id: number;
+  @ForeignKey(() => EventType)
+  event_type_Id: number;
 
-  //   @ForeignKey(() => HumanCategory)
-  //   human_category_Id: number;
+  @ForeignKey(() => AgeGroup)
+  age_group_Id: number;
 
-  //   @ForeignKey(() => Venue)
-  //   venueId: number;
+  @ForeignKey(() => Venue)
+  venueId: number;
 
-  //   @ForeignKey(() => Language)
-  //   langId: number;
+  @ForeignKey(() => Language)
+  langId: number;
 
   @Column({
     type: DataType.DATE,
   })
   release_date: string;
+
+  @BelongsTo(() => EventType)
+  event_type: EventType;
+
+  @BelongsTo(() => Venue)
+  venue: Venue;
+
+  @BelongsTo(() => AgeGroup)
+  age_group: AgeGroup;
+
+  @BelongsTo(() => Language)
+  lang: Language;
 }

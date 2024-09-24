@@ -1,14 +1,15 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Event } from "src/event/model/event.model";
 
-interface HumanCategoryAttr {
+interface IAgeGroupCreationAttr {
   name: string;
   start_age: number;
   finish_age: number;
   gender: number;
 }
 
-@Table({ tableName: "human_category" })
-export class HumanCategory extends Model<HumanCategory, HumanCategoryAttr> {
+@Table({ tableName: "age_group" })
+export class AgeGroup extends Model<AgeGroup, IAgeGroupCreationAttr> {
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -37,4 +38,7 @@ export class HumanCategory extends Model<HumanCategory, HumanCategoryAttr> {
     type: DataType.SMALLINT,
   })
   gender: number;
+
+  @HasMany(() => Event)
+  events: Event[];
 }

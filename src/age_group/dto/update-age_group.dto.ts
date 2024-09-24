@@ -1,4 +1,4 @@
-export class UpdateHumanCategoryDto {
+export class UpdateAgeGroupDto {
   name?: string;
   start_age?: number;
   finish_age?: number;

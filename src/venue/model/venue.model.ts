@@ -9,6 +9,7 @@ import {
   Table,
 } from "sequelize-typescript";
 import { District } from "src/district/model/district.model";
+import { Event } from "src/event/model/event.model";
 import { Region } from "src/region/model/region.model";
 import { Seat } from "src/seat/model/seat.model";
 import { VenuePhoto } from "src/venue_photo/model/venue_photo.model";
@@ -96,7 +97,10 @@ export class Venue extends Model<Venue, VenueAttr> {
 
   // @BelongsToMany(() => VenueType, () => VenueVenueType)
   // venue_types: VenueType[];
+
   @HasMany(() => Seat)
   seats: Seat[];
 
+  @HasMany(() => Event)
+  events: Event[];
 }

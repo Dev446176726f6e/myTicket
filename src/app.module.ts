@@ -1,8 +1,6 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { HumanCategoryModule } from "./human_category/human_category.module";
-import { HumanCategory } from "./human_category/models/human_category.model";
 import { SeatTypeModule } from "./seat_type/seat_type.module";
 import { VenueTypeModule } from "./venue_type/venue_type.module";
 import { VenueType } from "./venue_type/model/venue_type.model";
@@ -11,7 +9,6 @@ import { VenueModule } from "./venue/venue.module";
 import { Venue } from "./venue/model/venue.model";
 import { VenuePhotoModule } from "./venue_photo/venue_photo.module";
 import { VenuePhoto } from "./venue_photo/model/venue_photo.model";
-import { RegionController } from "./region/region.controller";
 import { RegionModule } from "./region/region.module";
 import { Region } from "./region/model/region.model";
 import { VenueVenueTypeModule } from "./venue_venue_type/venue_venue_type.module";
@@ -25,8 +22,14 @@ import { DistrictModule } from "./district/district.module";
 import { District } from "./district/model/district.model";
 import { SeatModule } from "./seat/seat.module";
 import { Seat } from "./seat/model/seat.model";
-import { EventModule } from './event/event.module';
-import { EventTypeModule } from './event_type/event_type.module';
+import { EventModule } from "./event/event.module";
+import { EventTypeModule } from "./event_type/event_type.module";
+import { LanguageModule } from "./language/language.module";
+import { EventType } from "./event_type/model/event_type.model";
+import { Language } from "./language/model/language.model";
+import { Event } from "./event/model/event.model";
+import { AgeGroupModule } from "./age_group/age_group.module";
+import { AgeGroup } from "./age_group/models/age_group.model";
 
 @Module({
   imports: [
@@ -39,7 +42,7 @@ import { EventTypeModule } from './event_type/event_type.module';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       models: [
-        HumanCategory,
+        AgeGroup,
         VenueType,
         SeatType,
         Venue,
@@ -51,12 +54,15 @@ import { EventTypeModule } from './event_type/event_type.module';
         UserRoles,
         District,
         Seat,
+        EventType,
+        Language,
+        Event,
       ],
       autoLoadModels: true,
       sync: { alter: true },
       logging: true,
     }),
-    HumanCategoryModule,
+    AgeGroupModule,
     SeatTypeModule,
     VenueTypeModule,
     VenueModule,
@@ -68,6 +74,7 @@ import { EventTypeModule } from './event_type/event_type.module';
     SeatModule,
     EventModule,
     EventTypeModule,
+    LanguageModule,
     // UsersModule,
   ],
   controllers: [],
