@@ -9,7 +9,7 @@ import {
 import { Venue } from "src/venue/model/venue.model";
 
 interface VenuePhotoAttr {
-  venueId: bigint;
+  venueId: number;
   url: string;
 }
 
@@ -24,9 +24,9 @@ export class VenuePhoto extends Model<VenuePhoto, VenuePhotoAttr> {
 
   @ForeignKey(() => Venue)
   @Column({
-    type: DataType.BIGINT,
+    type: DataType.INTEGER,
   })
-  venueId: bigint;
+  venueId: number;
 
   @Column({
     type: DataType.STRING,

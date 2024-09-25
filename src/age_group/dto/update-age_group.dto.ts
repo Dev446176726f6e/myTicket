@@ -1,6 +1,4 @@
-export class UpdateAgeGroupDto {
-  name?: string;
-  start_age?: number;
-  finish_age?: number;
-  gender?: number;
-}
+import { PartialType } from "@nestjs/mapped-types";
+import { CreateAgeGroupDto } from "./create-age_group.dto copy";
+
+export class UpdateAgeGroupDto extends PartialType(CreateAgeGroupDto) {}

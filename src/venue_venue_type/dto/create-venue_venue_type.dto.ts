@@ -1,4 +1,11 @@
+import { IsNotEmpty, IsNumber } from "class-validator";
+
 export class CreateVenueVenueTypeDto {
-   venueId: number
-   venueTypeId: number
+  @IsNumber()
+  @IsNotEmpty()
+  venueId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  venueTypeId: number;
 }

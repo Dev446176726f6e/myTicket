@@ -1,11 +1,4 @@
-export class UpdateVenueDto {
-  name?: string;
-  address?: string;
-  location?: string;
-  site?: string;
-  phone?: string;
-  venue_type_Id?: number;
-  scheme?: string[];
-  regionId?: number;
-  districtId?: number;
-}
+import { PartialType } from "@nestjs/mapped-types";
+import { CreateVenueDto } from "./create-venue.dto";
+
+export class UpdateVenueDto extends PartialType(CreateVenueDto) {}

@@ -7,6 +7,8 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
+import { Customer } from "src/customer/model/customer.model";
+import { CustomerAddress } from "src/customer_address/model/customer_address.model";
 import { Region } from "src/region/model/region.model";
 import { Venue } from "src/venue/model/venue.model";
 
@@ -40,4 +42,7 @@ export class District extends Model<District, IDistrictCreationAttr> {
 
   @HasMany(() => Venue)
   venue: Venue[];
+
+  @HasMany(() => CustomerAddress)
+  customers: CustomerAddress[];
 }

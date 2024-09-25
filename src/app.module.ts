@@ -34,8 +34,15 @@ import { TicketModule } from "./ticket/ticket.module";
 import { TicketStatusModule } from "./ticket_status/ticket_status.module";
 import { TicketStatus } from "./ticket_status/model/ticket_status.model";
 import { Ticket } from "./ticket/model/ticket.model";
-import { CartStatusModule } from './cart_status/cart_status.module';
-import { BookingStatusModule } from './booking_status/booking_status.module';
+import { CartStatusModule } from "./cart_status/cart_status.module";
+import { BookingStatusModule } from "./booking_status/booking_status.module";
+import { AuthModule } from "./auth/auth.module";
+import { CustomerModule } from "./customer/customer.module";
+import { Customer } from "./customer/model/customer.model";
+import { CustomerAddressModule } from "./customer_address/customer_address.module";
+import { CustomerAddress } from "./customer_address/model/customer_address.model";
+import { CustomerCardModule } from "./customer_card/customer_card.module";
+import { CustomerCard } from "./customer_card/model/customer_card.model";
 
 @Module({
   imports: [
@@ -65,6 +72,9 @@ import { BookingStatusModule } from './booking_status/booking_status.module';
         Event,
         TicketStatus,
         Ticket,
+        Customer,
+        CustomerAddress,
+        CustomerCard,
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -87,6 +97,10 @@ import { BookingStatusModule } from './booking_status/booking_status.module';
     TicketStatusModule,
     CartStatusModule,
     BookingStatusModule,
+    AuthModule,
+    CustomerModule,
+    CustomerAddressModule,
+    CustomerCardModule,
     // UsersModule,
   ],
   controllers: [],
