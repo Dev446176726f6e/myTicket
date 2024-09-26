@@ -95,8 +95,8 @@ export class Venue extends Model<Venue, VenueAttr> {
   @HasMany(() => VenuePhoto)
   venue_photos: VenuePhoto[];
 
-  // @BelongsToMany(() => VenueType, () => VenueVenueType)
-  // venue_types: VenueType[];
+  @BelongsToMany(() => VenueType, () => VenueVenueType)
+  venue_types: VenueType[];
 
   @HasMany(() => Seat)
   seats: Seat[];

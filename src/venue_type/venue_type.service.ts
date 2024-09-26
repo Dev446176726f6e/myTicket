@@ -18,11 +18,11 @@ export class VenueTypeService {
   }
 
   async getAllVenueTypes(): Promise<VenueType[]> {
-    return this.venueTypeModel.findAll();
+    return this.venueTypeModel.findAll({ include: { all: true } });
   }
 
   async getVenueTypeById(id: number): Promise<VenueType> {
-    return this.venueTypeModel.findByPk(id);
+    return this.venueTypeModel.findByPk(id, { include: { all: true } });
   }
 
   async deleteVenueType(id: number): Promise<number> {
@@ -30,11 +30,17 @@ export class VenueTypeService {
   }
 
   async getVenueTypeByName(name: string): Promise<VenueType> {
-   return this.venueTypeModel.findOne({where: {name}})
+    return this.venueTypeModel.findOne({ where: { name } });
   }
 
-  async updateVenueType(id: number, updateVenueTypeDto: UpdateVenueTypeDto): Promise<VenueType> {
-   const venue_type = await this.venueTypeModel.update(updateVenueTypeDto, {where: {id}, returning: true})
-   return venue_type[1][0]
+  async updateVenueType(
+    id: number,
+    updateVenueTypeDto: UpdateVenueTypeDto
+  ): Promise<VenueType> {
+    const venue_type = await this.venueTypeModel.update(updateVenueTypeDto, {
+      where: { id },
+      returning: true,
+    });
+    return venue_type[1][0];
   }
 }

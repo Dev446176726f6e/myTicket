@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateRoleDto } from "./dto/create-role.dto";
 import { UpdateRoleDto } from "./dto/update-role.dto";
 import { InjectModel } from "@nestjs/sequelize";
-import { Role } from "./model/role.model";
+import { Role } from "./model/roles.model";
 
 @Injectable()
 export class RolesService {
@@ -28,10 +28,13 @@ export class RolesService {
   }
 
   update(id: number, updateRoleDto: UpdateRoleDto) {
-    return `This action updates a #${id} role`;
+    return this.rolesModel.update(updateRoleDto, {
+      where: { id },
+      returning: true,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} role`;
+    return this.rolesModel.destroy({ where: { id } });
   }
 }

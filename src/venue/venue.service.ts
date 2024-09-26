@@ -6,6 +6,7 @@ import { UpdateVenueDto } from "./dto/update-venue.dto";
 import { Region } from "src/region/model/region.model";
 import { District } from "src/district/model/district.model";
 import { Seat } from "src/seat/model/seat.model";
+import { VenueType } from "src/venue_type/model/venue_type.model";
 
 @Injectable()
 export class VenueService {
@@ -22,6 +23,7 @@ export class VenueService {
         { model: Region, attributes: ["name"] },
         { model: District, attributes: ["name"] },
         { model: Seat, attributes: ["sector", "row_number", "number"] },
+        { model: VenueType, attributes: ["name"] },
       ],
     });
   }
@@ -32,6 +34,7 @@ export class VenueService {
         { model: Region, attributes: ["name"] },
         { model: District, attributes: ["name"] },
         { model: Seat, attributes: ["sector", "row_number", "number"] },
+        { model: VenueType, attributes: ["name"] },
       ],
     });
   }

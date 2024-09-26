@@ -6,13 +6,13 @@ import { UsersModule } from "src/users/users.module";
 
 @Module({
   imports: [
-    // UsersModule
     // forwardRef
     JwtModule.register({
       global: true,
       secret: "MySecretKey",
       signOptions: { expiresIn: "1h" },
     }),
+    UsersModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],

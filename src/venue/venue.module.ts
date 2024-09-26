@@ -1,12 +1,12 @@
-import { Module } from '@nestjs/common';
-import { VenueController } from './venue.controller';
-import { VenueService } from './venue.service';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { Venue } from './model/venue.model';
+import { Module } from "@nestjs/common";
+import { VenueController } from "./venue.controller";
+import { VenueService } from "./venue.service";
+import { SequelizeModule } from "@nestjs/sequelize";
+import { Venue } from "./model/venue.model";
 
 @Module({
   imports: [SequelizeModule.forFeature([Venue])],
   controllers: [VenueController],
-  providers: [VenueService]
+  providers: [VenueService],
 })
 export class VenueModule {}

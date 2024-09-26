@@ -11,17 +11,16 @@ export class VenueVenueTypeService {
     private venueVenueTypeMode: typeof VenueVenueType
   ) {}
 
-
   create(createVenueVenueTypeDto: CreateVenueVenueTypeDto) {
     return this.venueVenueTypeMode.create(createVenueVenueTypeDto);
   }
 
   findAll() {
-    return this.venueVenueTypeMode.findAll();
+    return this.venueVenueTypeMode.findAll({ include: { all: true } });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} venueVenueType`;
+    return this.venueVenueTypeMode.findByPk(id, { include: { all: true } });
   }
 
   update(id: number, updateVenueVenueTypeDto: UpdateVenueVenueTypeDto) {
@@ -29,6 +28,6 @@ export class VenueVenueTypeService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} venueVenueType`;
+    return this.venueVenueTypeMode.destroy({ where: { id } });
   }
 }
