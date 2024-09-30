@@ -11,6 +11,9 @@ import { SeatService } from "./seat.service";
 import { CreateSeatDto } from "./dto/create-seat.dto";
 import { UpdateSeatDto } from "./dto/update-seat.dto";
 
+// seat can be add, update, delete. can't see all seats.
+// buy by venue and with event customer can see.
+
 @Controller("seat")
 export class SeatController {
   constructor(private readonly seatService: SeatService) {}

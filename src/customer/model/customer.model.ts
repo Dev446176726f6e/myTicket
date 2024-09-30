@@ -6,9 +6,9 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { CustomerAddress } from "src/customer_address/model/customer_address.model";
-import { CustomerCard } from "src/customer_card/model/customer_card.model";
-import { Language } from "src/language/model/language.model";
+import { Language } from "../../language/model/language.model";
+import { CustomerCard } from "../../customer_card/model/customer_card.model";
+import { CustomerAddress } from "../../customer_address/model/customer_address.model";
 
 interface ICustomerCreationAttr {
   first_name: string;

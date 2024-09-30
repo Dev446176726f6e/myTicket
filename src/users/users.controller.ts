@@ -14,11 +14,8 @@ import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { AddRemoveRoleDto } from "./dto/add-remove-role.dto";
 import { ActivateDeactivateUserDto } from "./dto/activate-user.dto";
-// import { SelfGuard } from "src/guard/self.guard";
-// import { JwtAuthGuard } from "src/guard/jwt-auth.guard";
+import { JwtAuthGuard } from "../guard/jwt-auth.guard";
 
-// @UseGuards(SelfGuard)
-// @UseGuards(JwtAuthGuard)
 @Controller("users")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -28,11 +25,13 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.usersService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(":id")
   findOne(@Param("id") id: string) {
     return this.usersService.findOne(+id);

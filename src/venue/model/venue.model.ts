@@ -8,13 +8,13 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { District } from "src/district/model/district.model";
-import { Event } from "src/event/model/event.model";
-import { Region } from "src/region/model/region.model";
-import { Seat } from "src/seat/model/seat.model";
-import { VenuePhoto } from "src/venue_photo/model/venue_photo.model";
-import { VenueType } from "src/venue_type/model/venue_type.model";
-import { VenueVenueType } from "src/venue_venue_type/models/venue_venue_type.model";
+import { VenueType } from "../../venue_type/model/venue_type.model";
+import { Region } from "../../region/model/region.model";
+import { District } from "../../district/model/district.model";
+import { VenuePhoto } from "../../venue_photo/model/venue_photo.model";
+import { VenueVenueType } from "../../venue_venue_type/models/venue_venue_type.model";
+import { Seat } from "../../seat/model/seat.model";
+import { Event } from "../../event/model/event.model";
 
 interface VenueAttr {
   name: string;

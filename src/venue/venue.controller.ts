@@ -11,6 +11,12 @@ import { VenueService } from "./venue.service";
 import { CreateVenueDto } from "./dto/create-venue.dto";
 import { UpdateVenueDto } from "./dto/update-venue.dto";
 
+// only admins can add venue.
+// not only admins buy everyone can see all venues.
+// you can see by id or name.
+// only admins can update info.
+// only admins can delete it.
+
 @Controller("venue")
 export class VenueController {
   constructor(private readonly venueService: VenueService) {}

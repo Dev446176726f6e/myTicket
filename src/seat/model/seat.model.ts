@@ -7,9 +7,9 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { SeatType } from "src/seat_type/model/seat_type.model";
-import { Ticket } from "src/ticket/model/ticket.model";
-import { Venue } from "src/venue/model/venue.model";
+import { Venue } from "../../venue/model/venue.model";
+import { SeatType } from "../../seat_type/model/seat_type.model";
+import { Ticket } from "../../ticket/model/ticket.model";
 
 interface ISeatCreationAttr {
   sector: number;

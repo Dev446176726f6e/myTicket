@@ -8,12 +8,11 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { AgeGroup } from "src/age_group/models/age_group.model";
-import { EventType } from "src/event_type/model/event_type.model";
-
-import { Language } from "src/language/model/language.model";
-import { Ticket } from "src/ticket/model/ticket.model";
-import { Venue } from "src/venue/model/venue.model";
+import { EventType } from "../../event_type/model/event_type.model";
+import { AgeGroup } from "../../age_group/models/age_group.model";
+import { Venue } from "../../venue/model/venue.model";
+import { Language } from "../../language/model/language.model";
+import { Ticket } from "../../ticket/model/ticket.model";
 
 interface IEventCreationAttr {
   name: string;

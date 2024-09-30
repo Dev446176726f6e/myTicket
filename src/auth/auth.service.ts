@@ -1,16 +1,17 @@
 import {
-  BadGatewayException,
   BadRequestException,
   Injectable,
   UnauthorizedException,
 } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
-import { CreateUserDto } from "src/users/dto/create-user.dto";
-import { UsersService } from "src/users/users.service";
+
 import * as bcrypt from "bcrypt";
 import { JwtService } from "@nestjs/jwt";
-import { User } from "src/users/model/user.model";
+
 import { SignInDto } from "./dto/signin.dto";
+import { UsersService } from "../users/users.service";
+import { CreateUserDto } from "../users/dto/create-user.dto";
+import { User } from "../users/model/user.model";
 
 @Injectable()
 export class AuthService {

@@ -3,13 +3,13 @@ import { CreateEventDto } from "./dto/create-event.dto";
 import { UpdateEventDto } from "./dto/update-event.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { Event } from "./model/event.model";
-import { Seat } from "src/seat/model/seat.model";
-import { Ticket } from "src/ticket/model/ticket.model";
-import { Venue } from "src/venue/model/venue.model";
-import { EventType } from "src/event_type/model/event_type.model";
-import { Language } from "src/language/model/language.model";
-import { TicketStatus } from "src/ticket_status/model/ticket_status.model";
-import { SeatType } from "src/seat_type/model/seat_type.model";
+import { Venue } from "../venue/model/venue.model";
+import { Seat } from "../seat/model/seat.model";
+import { Ticket } from "../ticket/model/ticket.model";
+import { TicketStatus } from "../ticket_status/model/ticket_status.model";
+import { SeatType } from "../seat_type/model/seat_type.model";
+import { EventType } from "../event_type/model/event_type.model";
+import { Language } from "../language/model/language.model";
 
 @Injectable()
 export class EventService {

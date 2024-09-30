@@ -1,5 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
-import { Event } from "src/event/model/event.model";
+import { Event } from "../../event/model/event.model";
 
 interface ILanguageCreationAttr {
   name: string;

@@ -43,6 +43,9 @@ import { CustomerCardModule } from "./customer_card/customer_card.module";
 import { CustomerCard } from "./customer_card/model/customer_card.model";
 import { UsersModule } from "./users/users.module";
 import { AuthModule } from "./auth/auth.module";
+import { AdminModule } from "./admin/admin.module";
+import { Admin } from "./admin/model/admin.model";
+import { CartModule } from "./cart/cart.module";
 
 @Module({
   imports: [
@@ -78,7 +81,8 @@ import { AuthModule } from "./auth/auth.module";
       ],
       autoLoadModels: true,
       sync: { alter: true },
-      logging: true,
+      // just, it won't annoys me.
+      logging: false,
     }),
     AgeGroupModule,
     SeatTypeModule,
@@ -102,6 +106,9 @@ import { AuthModule } from "./auth/auth.module";
     CustomerCardModule,
     UsersModule,
     AuthModule,
+    AdminModule,
+    Admin,
+    CartModule,
   ],
   controllers: [],
   providers: [],

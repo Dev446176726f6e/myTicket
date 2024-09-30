@@ -2,15 +2,16 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  UseGuards,
 } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { User } from "./model/user.model";
-import { RolesService } from "src/roles/roles.service";
-import { Role } from "src/roles/model/roles.model";
 import { AddRemoveRoleDto } from "./dto/add-remove-role.dto";
 import { ActivateDeactivateUserDto } from "./dto/activate-user.dto";
+import { RolesService } from "../roles/roles.service";
+import { JwtAuthGuard } from "../guard/jwt-auth.guard";
 
 @Injectable()
 export class UsersService {
@@ -34,7 +35,14 @@ export class UsersService {
   }
 
   findByEmail(email: string) {
-    return this.userModel.findOne({ where: { email } });
+    return this.userModel.findOne({
+      where: { email },
+      include: {
+        all: true,
+        attributes: ["value"],
+        through: { attributes: [] },
+      },
+    });
   }
 
   findAll() {
@@ -49,8 +57,12 @@ export class UsersService {
     return this.userModel.update(updateUserDto, { where: { id } });
   }
 
-  remove(id: number) {
-    return this.userModel.destroy({ where: { id } });
+  async remove(id: number) {
+    const deleted_user = await this.userModel.destroy({ where: { id } });
+    if (deleted_user == 0) {
+      throw new NotFoundException("User is not deleted");
+    }
+    return { message: "User deleted successfully" };
   }
 
   async addRole(addRemoveRoleDto: AddRemoveRoleDto) {

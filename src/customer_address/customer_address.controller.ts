@@ -11,6 +11,10 @@ import { CustomerAddressService } from "./customer_address.service";
 import { CreateCustomerAddressDto } from "./dto/create-customer_address.dto";
 import { UpdateCustomerAddressDto } from "./dto/update-customer_address.dto";
 
+// customer can add his address. update it. see cuple of them by user_id.
+// can't see all possible addresses.
+// can delete it.
+
 @Controller("customer-address")
 export class CustomerAddressController {
   constructor(

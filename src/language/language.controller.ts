@@ -11,6 +11,8 @@ import { LanguageService } from "./language.service";
 import { CreateLanguageDto } from "./dto/create-language.dto";
 import { UpdateLanguageDto } from "./dto/update-language.dto";
 
+// managing with admins. customer can choose.
+
 @Controller("language")
 export class LanguageController {
   constructor(private readonly languageService: LanguageService) {}

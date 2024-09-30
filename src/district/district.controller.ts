@@ -11,6 +11,12 @@ import { DistrictService } from "./district.service";
 import { CreateDistrictDto } from "./dto/create-district.dto";
 import { UpdateDistrictDto } from "./dto/update-district.dto";
 
+// district can be add by admins.
+// all districts can be seen by everyone.
+// by id is also open.
+// can be updated by admins only
+// admins can delete it.
+
 @Controller("district")
 export class DistrictController {
   constructor(private readonly districtService: DistrictService) {}

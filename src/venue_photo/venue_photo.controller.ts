@@ -9,8 +9,13 @@ import {
 } from "@nestjs/common";
 import { VenuePhotoService } from "./venue_photo.service";
 import { CreateVenuePhotoDto } from "./dto/create-venue_photo.dto";
-import { UpdateVenueDto } from "src/venue/dto/update-venue.dto";
 import { UpdateVenuePhotoDto } from "./dto/update-venue_photo.dto";
+
+// only admins can add photo.
+// not all photos.
+// by id can be seen by event.
+// admins can update photo
+// only admins can delete it.
 
 @Controller("venue-photo")
 export class VenuePhotoController {

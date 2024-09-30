@@ -6,9 +6,9 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Customer } from "src/customer/model/customer.model";
-import { District } from "src/district/model/district.model";
-import { Region } from "src/region/model/region.model";
+import { Customer } from "../../customer/model/customer.model";
+import { Region } from "../../region/model/region.model";
+import { District } from "../../district/model/district.model";
 
 interface ICustomerAddressCreationAttr {
   customerId: number;

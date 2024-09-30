@@ -11,6 +11,8 @@ import { RegionService } from "./region.service";
 import { CreateRegionDto } from "./dto/create-venue.dto";
 import { UpdateRegionDto } from "./dto/update-venue.dto";
 
+// only admins can manage. but customer can see.
+
 @Controller("region")
 export class RegionController {
   constructor(private readonly regionService: RegionService) {}

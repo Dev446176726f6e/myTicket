@@ -3,7 +3,7 @@ import { CreateCustomerCardDto } from "./dto/create-customer_card.dto";
 import { UpdateCustomerCardDto } from "./dto/update-customer_card.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { CustomerCard } from "./model/customer_card.model";
-import { Customer } from "src/customer/model/customer.model";
+import { Customer } from "../customer/model/customer.model";
 
 @Injectable()
 export class CustomerCardService {

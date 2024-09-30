@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDataURI,
   IsDateString,
@@ -11,6 +12,10 @@ import {
 } from "class-validator";
 
 export class CreateCustomerDto {
+  // @ApiProperty({
+  //   example: "CUSTOMER",
+  //   description: "New customers will be created.",
+  // })
   @IsString()
   @IsNotEmpty()
   first_name: string;

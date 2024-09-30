@@ -7,7 +7,7 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Event } from "src/event/model/event.model";
+import { Event } from "../../event/model/event.model";
 
 interface IEventTypeCreationAttr {
   name: string;

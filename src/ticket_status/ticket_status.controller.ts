@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { TicketStatusService } from './ticket_status.service';
-import { CreateTicketStatusDto } from './dto/create-ticket_status.dto';
-import { UpdateTicketStatusDto } from './dto/update-ticket_status.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from "@nestjs/common";
+import { TicketStatusService } from "./ticket_status.service";
+import { CreateTicketStatusDto } from "./dto/create-ticket_status.dto";
+import { UpdateTicketStatusDto } from "./dto/update-ticket_status.dto";
 
-@Controller('ticket-status')
+// only admins can add, update and delete. but others can see and jwtguard.
+
+@Controller("ticket-status")
 export class TicketStatusController {
   constructor(private readonly ticketStatusService: TicketStatusService) {}
 
@@ -17,18 +27,21 @@ export class TicketStatusController {
     return this.ticketStatusService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(":id")
+  findOne(@Param("id") id: string) {
     return this.ticketStatusService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTicketStatusDto: UpdateTicketStatusDto) {
+  @Patch(":id")
+  update(
+    @Param("id") id: string,
+    @Body() updateTicketStatusDto: UpdateTicketStatusDto
+  ) {
     return this.ticketStatusService.update(+id, updateTicketStatusDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.ticketStatusService.remove(+id);
   }
 }

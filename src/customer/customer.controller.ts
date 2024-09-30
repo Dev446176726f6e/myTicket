@@ -11,6 +11,12 @@ import { CustomerService } from "./customer.service";
 import { CreateCustomerDto } from "./dto/create-customer.dto";
 import { UpdateCustomerDto } from "./dto/update-customer.dto";
 
+// customer can create account themselves without admin.
+// only admins and superadmins can see all customers.
+// customer can and others should be able to see his own info.
+// and both be able to update it.
+// only admins can delete it.
+
 @Controller("customer")
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}

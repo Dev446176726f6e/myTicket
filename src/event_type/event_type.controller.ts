@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { EventTypeService } from './event_type.service';
-import { CreateEventTypeDto } from './dto/create-event_type.dto';
-import { UpdateEventTypeDto } from './dto/update-event_type.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from "@nestjs/common";
+import { EventTypeService } from "./event_type.service";
+import { CreateEventTypeDto } from "./dto/create-event_type.dto";
+import { UpdateEventTypeDto } from "./dto/update-event_type.dto";
 
-@Controller('event-type')
+// admins can manage. might be visilbe in event types.
+
+@Controller("event-type")
 export class EventTypeController {
   constructor(private readonly eventTypeService: EventTypeService) {}
 
@@ -17,18 +27,21 @@ export class EventTypeController {
     return this.eventTypeService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(":id")
+  findOne(@Param("id") id: string) {
     return this.eventTypeService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateEventTypeDto: UpdateEventTypeDto) {
+  @Patch(":id")
+  update(
+    @Param("id") id: string,
+    @Body() updateEventTypeDto: UpdateEventTypeDto
+  ) {
     return this.eventTypeService.update(+id, updateEventTypeDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.eventTypeService.remove(+id);
   }
 }

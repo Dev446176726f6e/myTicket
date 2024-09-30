@@ -6,7 +6,7 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Venue } from "src/venue/model/venue.model";
+import { Venue } from "../../venue/model/venue.model";
 
 interface VenuePhotoAttr {
   venueId: number;

@@ -3,7 +3,7 @@ import { InjectModel } from "@nestjs/sequelize";
 import { SeatType } from "./model/seat_type.model";
 import { CreateSeatTypeDto } from "./dto/create-seat_type.dto";
 import { UpdateSeatTypeDto } from "./dto/update-seat_type.dto";
-import { Seat } from "src/seat/model/seat.model";
+import { Seat } from "../seat/model/seat.model";
 
 @Injectable()
 export class SeatTypeService {

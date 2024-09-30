@@ -7,7 +7,7 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Customer } from "src/customer/model/customer.model";
+import { Customer } from "../../customer/model/customer.model";
 
 interface ICustomerCardCreationAttr {
   customerId: number;

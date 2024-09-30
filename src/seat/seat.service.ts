@@ -3,7 +3,7 @@ import { CreateSeatDto } from "./dto/create-seat.dto";
 import { UpdateSeatDto } from "./dto/update-seat.dto";
 import { InjectModel } from "@nestjs/sequelize";
 import { Seat } from "./model/seat.model";
-import { Venue } from "src/venue/model/venue.model";
+import { Venue } from "../venue/model/venue.model";
 
 @Injectable()
 export class SeatService {

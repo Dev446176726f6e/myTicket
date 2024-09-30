@@ -6,9 +6,9 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Event } from "src/event/model/event.model";
-import { Seat } from "src/seat/model/seat.model";
-import { TicketStatus } from "src/ticket_status/model/ticket_status.model";
+import { Event } from "../../event/model/event.model";
+import { Seat } from "../../seat/model/seat.model";
+import { TicketStatus } from "../../ticket_status/model/ticket_status.model";
 
 interface ITicketCreationAttr {
   eventId: number;

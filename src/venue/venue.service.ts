@@ -3,10 +3,10 @@ import { InjectModel } from "@nestjs/sequelize";
 import { Venue } from "./model/venue.model";
 import { CreateVenueDto } from "./dto/create-venue.dto";
 import { UpdateVenueDto } from "./dto/update-venue.dto";
-import { Region } from "src/region/model/region.model";
-import { District } from "src/district/model/district.model";
-import { Seat } from "src/seat/model/seat.model";
-import { VenueType } from "src/venue_type/model/venue_type.model";
+import { Region } from "../region/model/region.model";
+import { District } from "../district/model/district.model";
+import { Seat } from "../seat/model/seat.model";
+import { VenueType } from "../venue_type/model/venue_type.model";
 
 @Injectable()
 export class VenueService {

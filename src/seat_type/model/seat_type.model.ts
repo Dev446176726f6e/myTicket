@@ -6,7 +6,7 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { Seat } from "src/seat/model/seat.model";
+import { Seat } from "../../seat/model/seat.model";
 
 interface ISeatTypeAttr {
   name: string;

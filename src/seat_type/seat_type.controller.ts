@@ -11,6 +11,8 @@ import { SeatTypeService } from "./seat_type.service";
 import { CreateSeatTypeDto } from "./dto/create-seat_type.dto";
 import { UpdateSeatTypeDto } from "./dto/update-seat_type.dto";
 
+// only by admin add, update, delete, can be visible by ticket.
+
 @Controller("seat-type")
 export class SeatTypeController {
   constructor(private readonly seatTypeService: SeatTypeService) {}

@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CartStatusService } from './cart_status.service';
-import { CreateCartStatusDto } from './dto/create-cart_status.dto';
-import { UpdateCartStatusDto } from './dto/update-cart_status.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from "@nestjs/common";
+import { CartStatusService } from "./cart_status.service";
+import { CreateCartStatusDto } from "./dto/create-cart_status.dto";
+import { UpdateCartStatusDto } from "./dto/update-cart_status.dto";
 
-@Controller('cart-status')
+// status might be add only by superadmin and admin. jwtguard and admins.
+
+@Controller("cart-status")
 export class CartStatusController {
   constructor(private readonly cartStatusService: CartStatusService) {}
 
@@ -17,18 +27,21 @@ export class CartStatusController {
     return this.cartStatusService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(":id")
+  findOne(@Param("id") id: string) {
     return this.cartStatusService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCartStatusDto: UpdateCartStatusDto) {
+  @Patch(":id")
+  update(
+    @Param("id") id: string,
+    @Body() updateCartStatusDto: UpdateCartStatusDto
+  ) {
     return this.cartStatusService.update(+id, updateCartStatusDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param("id") id: string) {
     return this.cartStatusService.remove(+id);
   }
 }

@@ -11,6 +11,9 @@ import { TicketService } from "./ticket.service";
 import { CreateTicketDto } from "./dto/create-ticket.dto";
 import { UpdateTicketDto } from "./dto/update-ticket.dto";
 
+// admins can update, add, delete. and see all.
+// but customers can see by event
+
 @Controller("ticket")
 export class TicketController {
   constructor(private readonly ticketService: TicketService) {}

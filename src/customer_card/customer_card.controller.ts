@@ -11,6 +11,13 @@ import { CustomerCardService } from "./customer_card.service";
 import { CreateCustomerCardDto } from "./dto/create-customer_card.dto";
 import { UpdateCustomerCardDto } from "./dto/update-customer_card.dto";
 
+// customer_card can be add by themselves without admin.
+// all can see all customers his cards.
+// and admins all cards.
+// customer_card info  should be open to see his own info.
+// and both be able to update it.
+// only admins can delete it.
+
 @Controller("customer-card")
 export class CustomerCardController {
   constructor(private readonly customerCardService: CustomerCardService) {}
